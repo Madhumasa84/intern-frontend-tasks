@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+node_modules/
+.env
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.pdf
+
+# Mentor-only answer keys. Keep these on your machine, never push them.
+mentor-solutions/
+
+# Mentor Only Files
+MENTOR_GUIDE.md
+GRADING.md

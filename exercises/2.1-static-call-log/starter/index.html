@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recent Calls | SCAI</title>
+  <style>
+    /* TODO 1: define CSS variables (colors, radius, shadow) in :root */
+
+    /* TODO 2: base styles: body background, font, container card */
+
+    /* TODO 3: table styles: header row, cells, hover, border-collapse */
+
+    /* TODO 4: status badges: .status, .status--answered, .status--missed, .status--transferred */
+
+    /* TODO 5: responsive block @media (max-width: 640px) { ... } using td::before { content: attr(data-label) } */
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Recent Calls</h1>
+
+    <!-- TODO 6: wrap the table in a container element (card) -->
+    <table>
+      <caption class="visually-hidden">Recent calls handled by the SCAI voice agent</caption>
+      <thead>
+        <tr>
+          <!-- TODO 7: five <th scope="col"> headers:
+               Caller Number | Date & Time | Duration | Status | Agent -->
+        </tr>
+      </thead>
+      <tbody>
+        <!-- TODO 8: at least 5 rows. Each <td> needs a data-label attribute.
+        Example row:
+        <tr>
+          <td data-label="Caller Number">+91 98765 43210</td>
+          <td data-label="Date & Time">2026-10-01 09:15</td>
+          <td data-label="Duration">03:42</td>
+          <td data-label="Status"><span class="status status--answered">Answered</span></td>
+          <td data-label="Agent">Aarav</td>
+        </tr>
+        Use all three statuses: Answered, Missed, Transferred. -->
+      </tbody>
+    </table>
+  </main>
+</body>
+</html>

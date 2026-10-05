@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Recent Calls (Filterable) | SCAI</title>
+  <style>
+    /* Paste your styles from Exercise 2.1 here (or write new ones). */
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+    table { border-collapse: collapse; width: 100%; }
+    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+
+    /* TODO 1: style the .controls bar (flex, gap, wrap) */
+    /* TODO 2: style inputs and the Clear button (focus ring included) */
+    /* TODO 3: make sure hidden rows really disappear: tr[hidden] { display: none; } */
+    /* TODO 4: style #emptyState and #resultCount */
+    .visually-hidden { position: absolute; left: -9999px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Recent Calls</h1>
+
+    <!-- TODO 5: controls bar -->
+    <div class="controls">
+      <!-- label + <select id="statusFilter"> with options: all, Answered, Missed, Transferred -->
+      <!-- label + <input id="searchInput" type="search" ...> -->
+      <!-- <button id="clearFilters" type="button">Clear filters</button> -->
+    </div>
+
+    <!-- TODO 6: <p id="resultCount" aria-live="polite"></p> -->
+
+    <table id="callsTable">
+      <thead>
+        <tr>
+          <th scope="col">Caller Number</th>
+          <th scope="col">Date &amp; Time</th>
+          <th scope="col">Duration</th>
+          <th scope="col">Status</th>
+          <th scope="col">Agent</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Add data-status on every row, e.g. <tr data-status="Answered"> -->
+        <tr data-status="Answered">
+          <td>+91 98765 43210</td><td>2026-10-01 09:15</td><td>03:42</td><td>Answered</td><td>Aarav</td>
+        </tr>
+        <tr data-status="Missed">
+          <td>+91 91234 56780</td><td>2026-10-01 09:48</td><td>00:00</td><td>Missed</td><td>N/A</td>
+        </tr>
+        <tr data-status="Transferred">
+          <td>+91 99887 76655</td><td>2026-10-01 10:22</td><td>05:10</td><td>Transferred</td><td>Meera</td>
+        </tr>
+        <tr data-status="Answered">
+          <td>+91 90909 12121</td><td>2026-10-01 11:05</td><td>02:31</td><td>Answered</td><td>Kabir</td>
+        </tr>
+        <tr data-status="Missed">
+          <td>+91 98111 22334</td><td>2026-10-01 11:40</td><td>00:00</td><td>Missed</td><td>N/A</td>
+        </tr>
+        <tr data-status="Answered">
+          <td>+91 97000 11223</td><td>2026-10-01 12:12</td><td>07:55</td><td>Answered</td><td>Aarav</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- TODO 7: <p id="emptyState" hidden>No calls match your filters.</p> -->
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

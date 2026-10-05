@@ -1,0 +1,48 @@
+/* Optional shared design tokens. Copy what you need into your own CSS.
+   Light theme, calm blue accent, readable system fonts. */
+:root {
+  /* surfaces */
+  --bg: #f6f8fb;
+  --surface: #ffffff;
+  --border: #e3e8ef;
+  --text: #1f2933;
+  --text-muted: #667085;
+
+  /* brand */
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #e8efff;
+
+  /* status colors (background / text pairs, all pass WCAG AA) */
+  --success-bg: #e6f6ec;
+  --success-text: #146c2e;
+  --danger-bg: #fdecec;
+  --danger-text: #b42318;
+  --warning-bg: #fff4e0;
+  --warning-text: #b54708;
+
+  /* spacing scale */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* shape and depth */
+  --radius: 10px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.1);
+
+  /* type */
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: var(--font);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}

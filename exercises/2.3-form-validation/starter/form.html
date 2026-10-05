@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>New Record | SCAI</title>
+  <style>
+    /* TODO 1: CSS variables and base styles (light theme) */
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+
+    /* TODO 2: form card layout: max-width 480px, padding, border, radius */
+    /* TODO 3: label, input, textarea styles with a visible focus ring */
+    /* TODO 4: .invalid { border-color: red-ish } and .error { color; font-size; min-height } */
+    /* TODO 5: #toast fixed at the top right, green, with a fade in/out */
+    .visually-hidden { position: absolute; left: -9999px; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>New Record</h1>
+
+    <form id="recordForm" novalidate>
+      <!-- TODO 6: build one block per field. Pattern:
+
+      <div class="field">
+        <label for="contactName">Contact Name</label>
+        <input id="contactName" name="contactName" type="text" autocomplete="name"
+               aria-describedby="contactName-error">
+        <p class="error" id="contactName-error" role="alert"></p>
+      </div>
+
+      Fields: contactName (text), phone (tel), apptDate (date), apptTime (time),
+              notes (textarea, with a live counter "0 / 200").
+      -->
+
+      <button type="submit">Save Record</button>
+    </form>
+
+    <div id="toast" role="status" aria-live="polite" hidden></div>
+  </main>
+
+  <script src="validation.js" defer></script>
+</body>
+</html>

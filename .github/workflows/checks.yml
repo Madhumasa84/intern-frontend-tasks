@@ -1,0 +1,47 @@
+name: Checks
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  checks:
+    name: Checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: PR title follows conventional format
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          echo "Title: $PR_TITLE"
+          if ! echo "$PR_TITLE" | grep -Eq '^(feat|fix|docs|chore|refactor|test|style)(\(.+\))?: .+'; then
+            echo "::error::PR title must look like 'type: description' (feat, fix, docs, chore, refactor, test, style)"
+            exit 1
+          fi
+
+      - name: Changes stay inside submissions/
+        run: |
+          git fetch origin ${{ github.base_ref }} --depth=1
+          bad=$(git diff --name-only origin/${{ github.base_ref }}...HEAD | grep -v '^submissions/' || true)
+          if [ -n "$bad" ]; then
+            echo "::warning::Files outside submissions/ were changed (allowed only for mentors):"
+            echo "$bad"
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: JavaScript syntax check
+        run: |
+          files=$(git ls-files 'submissions/**/*.js')
+          if [ -z "$files" ]; then echo "No JS files"; exit 0; fi
+          for f in $files; do echo "node --check $f"; node --check "$f"; done
+
+      - name: HTML lint
+        run: |
+          files=$(git ls-files 'submissions/**/*.html')
+          if [ -z "$files" ]; then echo "No HTML files"; exit 0; fi
+          npx -y htmlhint --rules doctype-first,tag-pair,attr-lowercase,attr-value-double-quotes,id-unique,src-not-empty,title-require,alt-require $files

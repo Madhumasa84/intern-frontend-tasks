@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Directory | SCAI</title>
+  <style>
+    body { font-family: system-ui, sans-serif; margin: 24px; }
+
+    /* TODO 1: .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap } */
+    /* TODO 2: .card styles (border, radius, padding, shadow) and .avatar (circle with initials) */
+    /* TODO 3: .spinner + @keyframes spin */
+    /* TODO 4: #errorBox (red-ish message box) */
+    /* TODO 5: [hidden] must really hide: [hidden] { display: none !important; } */
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Team Directory</h1>
+
+    <!-- Loading state -->
+    <div id="loader" role="status">
+      <div class="spinner"></div>
+      <p>Loading users...</p>
+    </div>
+
+    <!-- Error state -->
+    <div id="errorBox" role="alert" hidden>
+      <p id="errorMessage"></p>
+      <button id="retryBtn" type="button">Retry</button>
+    </div>
+
+    <!-- Success state -->
+    <section id="userGrid" class="grid" hidden aria-label="Users"></section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
