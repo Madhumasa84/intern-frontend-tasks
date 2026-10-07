@@ -16,7 +16,13 @@ function todayISO() {
 }
 
 const validators = {
-  contactName: (value) => (value.trim() === "" ? "Contact name is required." : ""),
+  contactName: (value) => {
+    const name = value.trim();
+    if (name === "") {
+      return "Contact name is required.";
+    }
+    return name.length < 2 ? "Contact name must be at least 2 characters." : "";
+  },
   phone: (value) => {
     const digits = value.replace(/[\s-]/g, "");
     if (digits === "") {
